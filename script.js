@@ -40,11 +40,16 @@ function calculateScore(tiles) {
 
 
 
+
 // DO NOT MODIFY
 // Used for automated testing
 try {
   module.exports = {
     highScore: typeof highScore !== 'undefined' ? highScore : undefined,
+    myScrabbleTiles: typeof myScrabbleTiles !== 'undefined' ? myScrabbleTiles : undefined,
+    removedTile: typeof removedTile !== 'undefined' ? removedTile : undefined,
+    calculateScore: typeof calculateScore !== 'undefined' ? calculateScore : undefined,
+    myScore: typeof myScore !== 'undefined' ? myScore : undefined,
   }
 } catch (e) {
   // Do nothing

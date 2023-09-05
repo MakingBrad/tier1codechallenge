@@ -10,9 +10,11 @@ if (typeof window === 'object') {
   expect = chai.expect;
   mocha.setup('bdd');
   testItems = {
-    // Variables
     highScore: typeof highScore !== 'undefined' ? highScore : undefined,
-
+    myScrabbleTiles: typeof myScrabbleTiles !== 'undefined' ? myScrabbleTiles : undefined,
+    removedTile: typeof removedTile !== 'undefined' ? removedTile : undefined,
+    calculateScore: typeof calculateScore !== 'undefined' ? calculateScore : undefined,
+    myScore: typeof myScore !== 'undefined' ? myScore : undefined,
   };
 } else {
   // Run tests in Node.js
@@ -26,12 +28,91 @@ if (typeof window === 'object') {
  */
 describe('Automated tests', function () {
 
-  describe(`highScore variable created and assigned a value of 29`, function () {
-    it(`highScore variable created and assigned a value of 29`, function () {
+  describe(`highScore exists and is a number`, function () {
+    it(`highScore exists and is a number`, function () {
       let { highScore } = testItems;
       expect(highScore).to.exist;
       expect(highScore).to.be.a('number');
-      expect(highScore).to.equal(29);
+    });
+  });
+
+  describe(`myScrabbleTiles exists and is an array`, function () {
+    it(`myScrabbleTiles exists and is an array`, function () {
+      let { myScrabbleTiles } = testItems;
+      expect(myScrabbleTiles).to.exist;
+      expect(myScrabbleTiles).to.be.an('array');
+    });
+  });
+
+  describe(`removedTile is {tile: 'A', score: 1}`, function () {
+    it(`removedTile is {tile: 'A', score: 1}`, function () {
+      let { removedTile } = testItems;
+      expect(removedTile).to.exist;
+      expect(removedTile).to.be.an('object');
+      expect({tile: 'A', score: 1}).to.deep.equal(removedTile);
+    });
+  });
+
+  describe(`myScrabbleTiles is populated with the correct tile objects`, function () {
+    it(`myScrabbleTiles is populated with the correct tile objects`, function () {
+      let { myScrabbleTiles } = testItems;
+      const correctScrabbleTiles = [
+        { tile: 'N', score: 1 },
+        { tile: 'K', score: 5 },
+        { tile: 'Z', score: 10 },
+        { tile: 'X', score: 8 },
+        { tile: 'D', score: 2 },
+        { tile: 'F', score : 4 }
+      ];
+      expect(myScrabbleTiles).to.exist;
+      expect(myScrabbleTiles).to.be.an('array');
+      expect(myScrabbleTiles).to.have.lengthOf(6)
+      expect(myScrabbleTiles).to.deep.equal(correctScrabbleTiles);
+    });
+  });
+
+  describe(`calculateScore returns the total score of an array of tile objects`, function () {
+    it(`calculateScore returns the total score of an array of tile objects`, function () {
+      let { myScrabbleTiles, calculateScore } = testItems;
+      const alternateTiles = [
+        { tile: 'P', score: 1 },
+        { tile: 'R', score: 2 },
+        { tile: 'I', score: 3 },
+        { tile: 'M', score: 4 },
+        { tile: 'E', score: 5 },
+      ]
+      expect(calculateScore(myScrabbleTiles), 'the function must return a value').to.exist;
+      expect(calculateScore(myScrabbleTiles), 'the function must return a number').to.be.a('number');
+      expect(calculateScore(myScrabbleTiles)).to.equal(30)
+      // make sure the function isn't hardcoded to return 30:
+      expect(calculateScore(alternateTiles)).to.equal(15)
+    });
+  });
+
+  describe(`myScore exists and was calculated correctly`, function () {
+    it(`myScore exists and was calculated correctly`, function () {
+      let { myScore } = testItems;
+      expect(myScore).to.exist;
+      expect(myScore).to.be.a('number');
+      expect(myScore).to.equal(30)
+    });
+  });
+
+  describe(`myScore exists and was calculated correctly`, function () {
+    it(`myScore exists and was calculated correctly`, function () {
+      let { myScore } = testItems;
+      expect(myScore).to.exist;
+      expect(myScore).to.be.a('number');
+      expect(myScore).to.equal(30)
+    });
+  });
+
+  describe(`highScore has been reassigned the value of 30`, function () {
+    it(`highScore has been reassigned the value of 30`, function () {
+      let { highScore } = testItems;
+      expect(highScore).to.exist;
+      expect(highScore).to.be.a('number');
+      expect(highScore).to.equal(30)
     });
   });
   
@@ -44,18 +125,3 @@ if (typeof window === 'object') {
   console.log('blahblah')
     mocha.run();
 }
-
-// ---
-// | Base Learning Objectives | Complete? |
-// | --- | :---: |
-// | Source javascript files into index.html | no |
-// | Create a variable and set its value | no |
-// | Arrays: create an array and set initial values | no |
-// | Arrays: add items to an array| no |
-// | Arrays: remove an item from an array| no |
-// | Functions: call the `sumTiles` function and pass an argument | no |
-// | Functions: function returns total tiles score | no |
-// | Functions: returned value assigned to `myScore` variable | no |
-// | Loops: write a loop that totals properties from objects within an array | no |
-// | Conditionals: compare numbers and determine which is higher  | no |
-// ---
