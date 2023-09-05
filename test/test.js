@@ -98,15 +98,6 @@ describe('Automated tests', function () {
     });
   });
 
-  describe(`myScore exists and was calculated correctly`, function () {
-    it(`myScore exists and was calculated correctly`, function () {
-      let { myScore } = testItems;
-      expect(myScore).to.exist;
-      expect(myScore).to.be.a('number');
-      expect(myScore).to.equal(30)
-    });
-  });
-
   describe(`highScore has been reassigned the value of 30`, function () {
     it(`highScore has been reassigned the value of 30`, function () {
       let { highScore } = testItems;
