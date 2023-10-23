@@ -23,7 +23,7 @@ That's it! That's the premise. With this in mind, go forth and code!
 - You may use any notes or past assignments or video content anywhere you can find as a resource!
 - Spend 2 hours with the challenge, then submit your code as usual. We're not going to nitpick the 2 hours, but it is expected to be completed in that time.
 
-**If you get tripped up or are having trouble on it, please just make notes and write down some questions for next week.**
+**If you get tripped up or are having trouble on it, please just make notes and write down some questions for tomorrow.**
 
 
 ## Instructions
