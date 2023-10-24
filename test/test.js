@@ -113,6 +113,5 @@ describe('Automated tests', function () {
  * If running the tests in the browser, call mocha.run()
  */
 if (typeof window === 'object') {
-  console.log('blahblah')
     mocha.run();
 }
