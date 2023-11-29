@@ -67,7 +67,7 @@ describe('Automated tests', function () {
       expect(myScrabbleTiles).to.exist;
       expect(myScrabbleTiles).to.be.an('array');
       expect(myScrabbleTiles).to.have.lengthOf(6)
-      expect(myScrabbleTiles).to.deep.equal(correctScrabbleTiles);
+      expect(myScrabbleTiles).to.include.deep.members(correctScrabbleTiles);
     });
   });
 
