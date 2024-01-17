@@ -85,7 +85,7 @@ describe('Automated tests', function () {
       expect(calculateScore(myScrabbleTiles), 'the function must return a number').to.be.a('number');
       expect(calculateScore(myScrabbleTiles)).to.equal(30)
       // make sure the function isn't hardcoded to return 30:
-      expect(calculateScore(alternateTiles)).to.equal(15)
+      expect(calculateScore(alternateTiles), 'the function must use the parameters given to it').to.equal(15)
     });
   });
 
